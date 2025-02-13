@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Popcorn_Box_Backend", "Popcorn_Box_Backend.csproj", "{D2323EFA-2F65-43BF-9DC0-15F6E7662578}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{05B5C74E-9271-4C6E-83D6-864C50834559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Popcorn_Box_Backend_TestProject", "..\Tests\Popcorn_Box_Backend_TestProject\Popcorn_Box_Backend_TestProject.csproj", "{81B756CE-8B6D-4E16-891C-CBA09DB49739}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2323EFA-2F65-43BF-9DC0-15F6E7662578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2323EFA-2F65-43BF-9DC0-15F6E7662578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2323EFA-2F65-43BF-9DC0-15F6E7662578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2323EFA-2F65-43BF-9DC0-15F6E7662578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B756CE-8B6D-4E16-891C-CBA09DB49739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B756CE-8B6D-4E16-891C-CBA09DB49739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B756CE-8B6D-4E16-891C-CBA09DB49739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B756CE-8B6D-4E16-891C-CBA09DB49739}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81B756CE-8B6D-4E16-891C-CBA09DB49739} = {05B5C74E-9271-4C6E-83D6-864C50834559}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A10D9367-1B28-4B51-B2C0-52C19141D136}
+	EndGlobalSection
+EndGlobal
