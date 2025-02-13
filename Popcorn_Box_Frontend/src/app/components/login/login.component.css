@@ -1,0 +1,26 @@
+.rowPass {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10Px;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-div {
+    max-width: 30%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 35%;
+}
+
+.next-page{
+    margin: 2vh;
+}
+
+@media screen and (max-width: 600px) {
+    div.form-div {
+        max-width: 60%;
+        margin-left: 20%;
+    }
+  }

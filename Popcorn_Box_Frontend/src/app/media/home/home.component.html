@@ -1,0 +1,26 @@
+<p>home works!</p>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Link</th>
+                <th scope="col">Poster</th>
+                
+            </tr>
+        </thead>
+                <tbody>
+                    <tr *ngFor="let item of allMedia">
+                        <th scope="row">{{item.id}}</th>
+                        <td>{{item.name}}</td>
+                        <td>{{item.actors}}</td>
+                        
+                        <td>
+                            <a class="btn btn-primary" [routerLink]="['/media/player', item.id]">Play</a>
+                          </td>
+                    </tr>
+                </tbody>
+            
+    </table>
+</div>

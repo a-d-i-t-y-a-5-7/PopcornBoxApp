@@ -1,0 +1,48 @@
+<ngx-guided-tour></ngx-guided-tour>
+    <div class="form-div">
+        <form [formGroup]="LoginForm" class="form-container">
+            <div class="card-div">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title tabindex="0" aria-label="Login Page is focused">Login</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="rowPass">
+                            <div>
+                                <mat-form-field id="stepFourteen" appearance="outline" class="full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input aria-label="Enter email" matInput placeholder="Email" formControlName="Email" [(ngModel)]="LogEmail">
+                                    <mat-hint *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">Email
+                                        is
+                                        required</mat-hint>
+                                    <mat-hint *ngIf="Email.errors?.['email']&& (Email.touched || Email.dirty)">Enter
+                                        valid
+                                        email.</mat-hint>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="rowPass">
+                            <div>
+                                <mat-form-field id="stepFifteen" appearance="outline" class="full-width">
+                                    <mat-label>Password</mat-label>
+                                    <input aria-label="Enter password" type="password" matInput placeholder="Password" formControlName="Password"
+                                        [(ngModel)]="LogPassword">
+                                    <mat-hint
+                                        *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">Password
+                                        is required</mat-hint>
+                                    <mat-hint
+                                        *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.dirty || Password.touched)">Minimum
+                                        length is 6</mat-hint>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <div class="buttons">
+                        <button id="stepSixteen" mat-raised-button color="primary" (click)="Login()"
+                            [disabled]="LoginForm.invalid">Submit</button>
+                    </div>
+                    <a class="next-page" id="stepSeventeen" routerLink="/register" routerLinkActive="Active">New User? Register</a>
+                </mat-card>
+            </div>
+        </form>
+    </div>

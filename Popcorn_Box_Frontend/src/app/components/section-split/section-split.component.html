@@ -1,0 +1,9 @@
+    <div>
+        <h2>{{item.sectionHeader}}</h2>
+    </div>
+    <div class="card-container">
+        <ng-container *ngFor="let i of item.sectionItems; let id = index">
+            <app-card *ngIf="id < 3" [item]="i"></app-card>
+            <a *ngIf="id == 2" >View All > </a>
+        </ng-container>
+    </div>

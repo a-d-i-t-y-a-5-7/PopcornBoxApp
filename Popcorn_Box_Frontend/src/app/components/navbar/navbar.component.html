@@ -1,0 +1,67 @@
+<ngx-guided-tour></ngx-guided-tour>
+
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span><a class="logo" routerLink="home" aria-label="Popcorn logo is focused"><img src="../../../assets/images/logo.png" alt=""></a></span>
+  
+  <div fxLayout="row" fxLayoutAlign="start center" fxHide.xs fxHide.sm>
+    <button id="stepOne" mat-button routerLink="home" aria-label="Home button is focused, clickable">Home</button>
+    <button id="stepTwo" mat-button routerLink="movies" aria-label="Movies button is focused, clickable">Movies</button>
+    <button id="stepThree" mat-button routerLink="tvshows" aria-label="TV Shows button is focused, clickable">TV Shows</button>
+    <button id="stepFour" mat-button routerLink="song" aria-label="Songs button is focused, clickable">Songs</button>
+    <button mat-button (click)="onTourStart()" aria-label="Tour button is focused, clickable">Tour</button>
+    </div>
+
+    <div class="spacer"></div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxHide.xs fxHide.sm>
+
+    <button id="stepFive" mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu button is focused tap enter to get user related options" aria-haspopup="true" aria-expanded="false">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="!service.IsLoggedin()">
+        <a mat-button [routerLink]="['login']" routerLinkActive="active" aria-label="Login button is focused" tabindex="0">Login</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin()">
+        <a mat-button [routerLink]="['/profile', id]" aria-label="Profile button is focused" tabindex="0">Profile</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin() && service.IsAdmin()">
+        <a mat-button routerLink="client-approval" routerLinkActive="active" aria-label="Client approval button is focused" tabindex="0">Approval</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin() && service.IsAdmin()">
+        <a mat-button routerLink="user-list" routerLinkActive="active" aria-label="User list button is focused" tabindex="0">Users</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin() && service.IsClient()">
+        <a mat-button [routerLink]="['/my-media', id]" aria-label="My media button is focused and you can add new media here" tabindex="0">My Media</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin() && service.IsClient()">
+        <a mat-button [routerLink]="['/my-song', id]" aria-label="My song button is focused and you can add new song here" tabindex="0">My Songs</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin()">
+        <a mat-button [routerLink]="['/favouriteMedia', id]" aria-label="Favourite button is focused" tabindex="0">Favourite</a>
+    </button>
+    <button mat-menu-item *ngIf="service.IsLoggedin()">
+        <a mat-button (click)="Logout()" aria-label="Logout button is focused" tabindex="0">Logout</a>
+    </button>
+    </mat-menu>
+  </div>
+
+  <div fxHide fxShow.xs fxShow.sm>
+    <button mat-button [matMenuTriggerFor]="menus">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menus="matMenu">
+      <button mat-menu-item routerLink="home">Home</button>
+      <button mat-menu-item routerLink="movies">Movies</button>
+      <button mat-menu-item routerLink="tvshows">TV Shows</button>
+      <button mat-menu-item routerLink="song">Songs</button>
+      <button mat-menu-item routerLink="login" *ngIf="!service.IsLoggedin()">Login</button>
+      <button mat-menu-item routerLink="['/profile', id]" *ngIf="service.IsLoggedin()">Profile</button>
+      <button mat-menu-item routerLink="['/favouriteMedia', id]" *ngIf="service.IsLoggedin()">Favourite</button>
+      <button mat-menu-item routerLink="client-approval" *ngIf="service.IsLoggedin() && service.IsAdmin()">Approval</button>
+      <button mat-menu-item routerLink="user-list" *ngIf="service.IsLoggedin() && service.IsAdmin()">User</button>
+      <button mat-menu-item routerLink="['/my-media', id]" *ngIf="service.IsLoggedin() && service.IsClient()">My Media</button>
+      <button mat-menu-item routerLink="['/my-song', id]" *ngIf="service.IsLoggedin() && service.IsClient()">My Songs</button>
+      <button mat-menu-item routerLink="home" (click)="Logout()" *ngIf="service.IsLoggedin()">Log out</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

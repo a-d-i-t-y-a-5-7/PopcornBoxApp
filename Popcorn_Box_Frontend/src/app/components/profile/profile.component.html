@@ -1,0 +1,56 @@
+<div class="form-div">
+    <form [formGroup]="UpdateForm" class="form-container">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Profile Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="rowPass">
+            <div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="Name" [(ngModel)]="user.Name">
+                <mat-hint *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)">Name is required</mat-hint>
+                <mat-hint *ngIf="Name.errors?.['minlength']">Name is too short</mat-hint>
+                <mat-hint *ngIf="Name.errors?.['pattern']&& (Name.touched || Name.dirty)">Name should contains alphabets only</mat-hint>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="Email" [(ngModel)]="user.Email">
+                <mat-hint *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">Email is required</mat-hint>
+                <mat-hint *ngIf="Email.errors?.['email']&& (Email.touched || Email.dirty)">Enter valid email.</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="rowPass">
+            <div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password" formControlName="Password" [(ngModel)]="user.Password">
+                <mat-hint *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">Password is required</mat-hint>
+                <mat-hint *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.dirty || Password.touched)">Minimum length is 6</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="rowPass">
+            <div>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Contact</mat-label>
+                <input matInput placeholder="Contact" formControlName="Contact" [(ngModel)]="user.Contact">
+                <mat-hint *ngIf="Contact.errors?.['required'] && (Contact.dirty || Contact.touched)">Contact is required</mat-hint>
+                <mat-hint *ngIf="Contact.errors?.['pattern'] && (Contact.dirty || Contact.touched)">Only digits allowed</mat-hint>
+                <mat-hint *ngIf="Contact.errors?.['minlength'] && (Contact.dirty || Contact.touched)">Contact is too short</mat-hint>
+                <mat-hint *ngIf="Contact.errors?.['maxlength'] && (Contact.dirty || Contact.touched)">Contact is too long</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+        <div class="buttons">
+          <button mat-raised-button color="primary" (click)="UpdateUser()" [disabled]="UpdateForm.invalid">Submit</button>
+        </div>
+      </mat-card>
+    </form>
+  </div>
+  <router-outlet></router-outlet>

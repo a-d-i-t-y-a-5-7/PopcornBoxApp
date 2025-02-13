@@ -1,0 +1,47 @@
+.full-width{
+    width: 100%;
+}
+
+/* .form-container{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10%;
+} */
+.rowPass{
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 20Px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.buttons{
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.form-div {
+    max-width: 50%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 25%;
+}
+
+.next-page{
+    margin: 2vh;
+}
+
+@media screen and (max-width: 600px) {
+    div.form-div {
+        max-width: 60%;
+        margin-left: 20%;
+    }
+  }

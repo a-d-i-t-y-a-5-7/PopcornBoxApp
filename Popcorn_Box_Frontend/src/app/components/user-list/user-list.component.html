@@ -1,0 +1,52 @@
+<div class="container">
+<h1>User List</h1>
+    <div class="search-container">
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="search" autocomplete="off" (keyup)="filterData($event)">
+        </mat-form-field>
+    </div>
+
+    <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="contact">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Contact </th>
+        <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="isSubscribed">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef> Subscription </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon *ngIf="element.isSubscribed" style="color:green;">check_circle_outline</mat-icon>
+                <mat-icon *ngIf="!element.isSubscribed" style="color: red;">highlight_off</mat-icon>                                                           
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="isActive">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon mat-raised-button (click)="delete(element.userId)" style="color: red;">delete</mat-icon>
+            </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator #paginator
+    [pageSize]="2"
+    [pageSizeOptions]="[2, 5, 10, 25, 100]"
+    >
+    </mat-paginator>
+
+
+</div>
+

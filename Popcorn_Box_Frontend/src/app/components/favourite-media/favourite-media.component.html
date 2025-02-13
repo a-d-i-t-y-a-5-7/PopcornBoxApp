@@ -1,0 +1,44 @@
+<h1>Favourite Movies and TV Shows</h1>
+<div class="card-outer-div">
+    <ng-container *ngFor="let item of fMedia">
+        <div fxFlex="17%" fxFlex.xs="75%" fxFlex.sm="30%">
+            <mat-card class="example-card">
+        <img mat-card-image src="{{item.thumbnail}}" alt="Photo of a Shiba Inu" (click)="PlayMedia(item.id||-1)">
+                <div style="display: flex;flex-direction: row;">
+                    <mat-card-content>
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"
+                            *ngIf="IsFavourite(item.id ?? -999)" (click)="deleteFavourite(item.id ?? -999)">
+                            <mat-icon>favorite</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </div>
+            </mat-card>
+        </div>
+    </ng-container>
+</div>
+
+<!-- Songs -->
+<h1>Favourite Songs</h1>
+<div class="card-outer-div">
+    <ng-container *ngFor="let item of fSong">
+        <div fxFlex="17%" fxFlex.xs="75%" fxFlex.sm="30%">
+            <mat-card class="example-card">
+        <img mat-card-image src="{{item.thumbnail}}" alt="Photo of a Shiba Inu" (click)="PlaySong(item.songsId||-1)">
+                <div style="display: flex;flex-direction: row;">
+                    <mat-card-content>
+                        <mat-card-title>{{item.name}}</mat-card-title>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon"
+                            *ngIf="IsFavouriteSong(item.songsId ?? -999)" (click)="deleteFavouriteSong(item.songsId ?? -999)">
+                            <mat-icon>favorite</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </div>
+            </mat-card>
+        </div>
+    </ng-container>
+</div>

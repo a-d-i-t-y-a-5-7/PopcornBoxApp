@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px;
+
+    div > h2 {
+        margin-left: 15px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,121 @@
+<div class="form-div">
+    <form [formGroup]="MediaForm" class="form-container">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Edit Media</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="rowPass">
+                    <div>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="Name" formControlName="name" [(ngModel)]="mediaForm.name">
+                            <mat-hint *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">Name is
+                                required</mat-hint>
+                            <mat-hint *ngIf="name.errors?.['minlength']">Name is too short</mat-hint>
+
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Actors</mat-label>
+                        <input matInput placeholder="Actors" formControlName="actors" [(ngModel)]="mediaForm.actors">
+                        <mat-hint *ngIf="actors.errors?.['required'] && (actors.touched || actors.dirty)">Actors are
+                            required</mat-hint>
+
+                    </mat-form-field>
+                </div>
+
+                <div class="rowPass">
+                    <div>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Directors</mat-label>
+                            <input type="text" matInput placeholder="directors" formControlName="directors"
+                                [(ngModel)]="mediaForm.directors">
+                            <mat-hint
+                                *ngIf="directors.errors?.['required'] && (directors.dirty || directors.touched)">Name is
+                                required</mat-hint>
+                            <mat-hint
+                                *ngIf="directors.errors?.['minlength'] || directors.errors?.['maxlength'] && (directors.dirty || directors.touched)">Minimum
+                                length is 6</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Select Genre</mat-label>
+                        <mat-select formControlName="genreId" [(ngModel)]="mediaForm.genreId">
+                            <mat-option value=1>Crime</mat-option>
+                            <mat-option value=2>Action</mat-option>
+                            <mat-option value=3>Thriller</mat-option>
+                            <mat-option value=4>Horror</mat-option>
+                            <mat-option value=5>Romantic</mat-option>
+                            <mat-option value=6>Comedy</mat-option>
+                            <mat-option value=7>Science Fiction</mat-option>
+                            <mat-option value=8>Animation</mat-option>
+                            <mat-option value=9>Drama</mat-option>
+                            <mat-option value=10>Suspense</mat-option>
+                            <mat-option value=11>Rock</mat-option>
+                            <mat-option value=12>Hip-Hop</mat-option>
+                            <mat-option value=13>Jazz</mat-option>
+                            <mat-option value=14>EDM</mat-option>
+
+                        </mat-select>
+                        <mat-hint *ngIf="genreId.errors?.['required'] && (genreId.dirty || genreId.touched)">Please
+                            choose genre</mat-hint>
+                    </mat-form-field>
+                </div>
+
+                <div class="rowPass">
+                    <div>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Choose Release date</mat-label>
+                            <input matInput [matDatepicker]="picker" placeholder="Year" formControlName="year" [(ngModel)]="mediaForm.year">
+                            
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            
+                            <mat-hint *ngIf="year.errors?.['required'] && (year.dirty || year.touched)">Year is
+                                required</mat-hint>
+
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Select Media Type</mat-label>
+                        <mat-select formControlName="mediaId" [(ngModel)]="mediaForm.mediaId">
+                            <mat-option value=1>TV Show</mat-option>
+                            <mat-option value=2>Movie</mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="mediaId.errors?.['required'] && (mediaId.dirty || mediaId.touched)">Please
+                            choose media type</mat-hint>
+                    </mat-form-field>
+                </div>
+
+            
+            
+            <div>
+                <label>Thumbnail</label>
+                <input type="file" accept=".jpg" (change)="onFileSelected($event)">
+                <button (click)="uploadImage()">Upload</button>
+            </div>
+            <br>
+            <div>
+                <label>Media</label>
+                <input type="file" accept=".mp4" (change)="onFileSelected($event)">
+                <button (click)="uploadFile()">Upload</button>
+            </div>
+            <br>
+            <mat-card-actions>
+                <div class="buttons">
+                    <button mat-raised-button color="primary" (click)="update()"
+                        [disabled]="MediaForm.invalid">Update</button>
+                </div>
+            </mat-card-actions>
+        </mat-card-content>
+        </mat-card>
+    </form>
+</div>
+<router-outlet></router-outlet>

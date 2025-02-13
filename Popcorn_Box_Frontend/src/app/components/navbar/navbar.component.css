@@ -1,0 +1,15 @@
+.mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .spacer {
+    flex-grow: 1;
+  }
+  
+  .logo{
+    text-decoration: none;
+    color: white;
+  }

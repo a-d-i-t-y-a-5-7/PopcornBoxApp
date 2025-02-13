@@ -1,0 +1,26 @@
+<ngx-guided-tour></ngx-guided-tour>
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div class="card-outer-div">
+    <ng-container *ngFor="let item of mySong">
+        <div *ngIf="searchText==='' || item.name?.toLocaleLowerCase()?.includes(searchText.toLocaleLowerCase()) || item.singers?.toLocaleLowerCase()?.includes(searchText.toLocaleLowerCase())" fxFlex="17%" fxFlex.xs="75%" fxFlex.sm="30%" class="card-design">
+            <mat-card class="example-card">
+        <img id="stepSix" mat-card-image src="{{item.thumbnail}}" alt="Photo of {{item.name}}" (click)="PlayMedia(item.songsId||-1)" tabindex="0">
+                <div style="display: flex;flex-direction: row;">
+                    <mat-card-content>
+                        <mat-card-title style="margin-right: auto;" tabindex="0">{{item.name}}</mat-card-title>
+                    </mat-card-content>
+                    <mat-card-actions style="margin-left: auto;">
+                        <button id="stepEight" mat-icon-button color="warn" aria-label="Focused on remove from favourite"
+                            *ngIf="IsFavouriteSong(item.songsId ?? -999)" (click)="deleteFavSong(item.songsId ?? -999)">
+                            <mat-icon>favorite</mat-icon>
+                        </button>
+                        <button id="stepSeven" mat-icon-button aria-label="Focused on add to favourite"
+                            *ngIf="!IsFavouriteSong(item.songsId ?? -999)" (click)="AddFavSong(item.songsId ?? -999)">
+                            <mat-icon>favorite_border</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </div>
+            </mat-card>
+        </div>
+    </ng-container>
+</div>

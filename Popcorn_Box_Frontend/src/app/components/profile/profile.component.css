@@ -1,0 +1,35 @@
+.full-width{
+    width: 60%;
+}
+
+.top-padding{
+    padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child){
+    margin-left:10px;
+}
+
+.form-container{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+.rowPass{
+    justify-content: center;
+    text-align: center;
+    column-gap: 10Px;
+}
+.buttons{
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+.form-div{
+    justify-content: center;
+    text-align: center;
+}
